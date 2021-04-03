@@ -1,12 +1,12 @@
-package com.example.belajarandroidjetpackpro.reader
+package com.example.belajarandroidjetpackpro.ui.home
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.example.belajarandroidjetpackpro.R
 
-class CourseReaderActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_course_reader)
+        setContentView(R.layout.activity_home)
     }
 }

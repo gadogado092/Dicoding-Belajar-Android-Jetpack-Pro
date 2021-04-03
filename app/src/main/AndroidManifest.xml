@@ -14,16 +14,16 @@
         android:theme="@style/Theme.BelajarAndroidJetpackPro"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".detail.DetailCourseActivity"
+            android:name="com.example.belajarandroidjetpackpro.ui.detail.DetailCourseActivity"
             android:label="@string/title_activity_detail_course"
-            android:parentActivityName=".home.HomeActivity"
+            android:parentActivityName="com.example.belajarandroidjetpackpro.ui.home.HomeActivity"
             android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".home.HomeActivity" />
+                android:value="com.example.belajarandroidjetpackpro.ui.home.HomeActivity" />
         </activity>
-        <activity android:name=".reader.CourseReaderActivity" />
-        <activity android:name=".home.HomeActivity">
+        <activity android:name="com.example.belajarandroidjetpackpro.ui.reader.CourseReaderActivity" />
+        <activity android:name="com.example.belajarandroidjetpackpro.ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

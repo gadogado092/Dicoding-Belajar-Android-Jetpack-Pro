@@ -1,11 +1,10 @@
-package com.example.belajarandroidjetpackpro.reader.content
+package com.example.belajarandroidjetpackpro.ui.reader.content
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import com.example.belajarandroidjetpackpro.R
 
 // TODO: Rename parameter arguments, choose names that match
