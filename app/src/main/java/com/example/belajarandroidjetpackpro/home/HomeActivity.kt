@@ -1,7 +1,8 @@
-package com.example.belajarandroidjetpackpro
+package com.example.belajarandroidjetpackpro.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.belajarandroidjetpackpro.R
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
