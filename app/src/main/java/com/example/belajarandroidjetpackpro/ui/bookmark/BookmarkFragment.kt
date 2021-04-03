@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.data.CourseEntity
 import com.example.belajarandroidjetpackpro.databinding.FragmentBookmarkBinding
 import com.example.belajarandroidjetpackpro.utils.DataDummy
 
-class BookmarkFragment : Fragment(), BookmarkFragmentCallback  {
+class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
 
     lateinit var fragmentBookmarkBinding: FragmentBookmarkBinding
 
@@ -21,8 +22,10 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback  {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
         fragmentBookmarkBinding = FragmentBookmarkBinding.inflate(inflater, container, false)
         return fragmentBookmarkBinding.root
@@ -32,7 +35,11 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback  {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val courses = DataDummy.generateDummyCourses()
+            val viewModel = ViewModelProvider(
+                this,
+                ViewModelProvider.NewInstanceFactory()
+            )[BookmarkViewModel::class.java]
+            val courses = viewModel.getBookmarks()
             val adapter = BookmarkAdapter(this)
             adapter.setCourses(courses)
             with(fragmentBookmarkBinding.rvBookmark) {
