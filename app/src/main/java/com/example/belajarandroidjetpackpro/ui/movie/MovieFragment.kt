@@ -23,10 +23,10 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
             val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val courses = viewModel.getMovie()
+            val movies = viewModel.getMovie()
             val movieAdapter = MovieAdapter()
-            movieAdapter.setMovie(courses)
-            with(fragmentMovieBinding.rvAcademy) {
+            movieAdapter.setMovie(movies)
+            with(fragmentMovieBinding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = movieAdapter

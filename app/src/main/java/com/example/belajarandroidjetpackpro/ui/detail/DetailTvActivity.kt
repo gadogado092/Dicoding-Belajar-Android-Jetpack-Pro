@@ -7,23 +7,23 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.data.MovieEntity
-import com.example.belajarandroidjetpackpro.databinding.ActivityDetailMovieBinding
-import com.example.belajarandroidjetpackpro.databinding.ContentDetailMovieBinding
+import com.example.belajarandroidjetpackpro.data.TvEntity
+import com.example.belajarandroidjetpackpro.databinding.ActivityDetailTvBinding
+import com.example.belajarandroidjetpackpro.databinding.ContentDetailTvBinding
 
-class DetailMovieActivity : AppCompatActivity() {
+class DetailTvActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DETAIL = "extra_detail"
     }
 
-    private lateinit var detailContentBinding: ContentDetailMovieBinding
+    private lateinit var detailContentBinding: ContentDetailTvBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val activityDetailBinding = ActivityDetailMovieBinding.inflate(layoutInflater)
-        detailContentBinding = activityDetailBinding.detailContentMovie
+        val activityDetailBinding = ActivityDetailTvBinding.inflate(layoutInflater)
+        detailContentBinding = activityDetailBinding.detailContentTv
 
         setContentView(activityDetailBinding.root)
 
@@ -33,22 +33,22 @@ class DetailMovieActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
-        )[DetailMovieViewModel::class.java]
+        )[DetailTvViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
-            val id = extras.getString(EXTRA_DETAIL)
+            val id = extras.getString(DetailMovieActivity.EXTRA_DETAIL)
             if (id != null) {
                 viewModel.setSelected(id)
-                populateDetail(viewModel.getDetail() as MovieEntity)
+                populateDetail(viewModel.getDetail() as TvEntity)
             }
         }
     }
 
-    private fun populateDetail(detail: MovieEntity) {
-        detailContentBinding.textTitleMovie.text = detail.title
-        detailContentBinding.textDescriptionMovie.text = detail.description
-        detailContentBinding.textDateMovie.text = detail.dateRelease
+    private fun populateDetail(detail: TvEntity) {
+        detailContentBinding.textTitleTv.text = detail.title
+        detailContentBinding.textDescriptionTv.text = detail.description
+        detailContentBinding.textDateTv.text = detail.dateRelease
 
         Glide.with(this)
             .load(detail.pathImage)
@@ -57,6 +57,6 @@ class DetailMovieActivity : AppCompatActivity() {
                 RequestOptions.placeholderOf(R.drawable.ic_loading)
                     .error(R.drawable.ic_error)
             )
-            .into(detailContentBinding.imagePosterMovie)
+            .into(detailContentBinding.imagePosterTv)
     }
 }

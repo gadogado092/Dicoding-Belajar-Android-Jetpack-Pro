@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.belajarandroidjetpackpro.data.MovieEntity
 import com.example.belajarandroidjetpackpro.utils.DataDummy
 
-class DetailViewModel : ViewModel() {
+class DetailMovieViewModel : ViewModel() {
     private lateinit var id: String
 
     fun setSelected(id: String) {

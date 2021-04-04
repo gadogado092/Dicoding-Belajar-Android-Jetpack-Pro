@@ -7,5 +7,6 @@
     <string name="dateRelease">Date Release</string>
     <string name="description">Deskripsi</string>
     <string name="date">Tanggal Release</string>
-    <string name="title_activity_detail">Detail</string>
+    <string name="title_activity_detail_movie">Detail Movie</string>
+    <string name="title_activity_detail_tv">Detail Tv</string>
 </resources>

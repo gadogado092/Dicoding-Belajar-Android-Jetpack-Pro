@@ -10,9 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BelajarAndroidJetpackPro">
         <activity
+            android:name=".ui.detail.DetailTvActivity"
+            android:label="@string/title_activity_detail_tv"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.belajarandroidjetpackpro.ui.home.HomeActivity" />
+        </activity>
+        <activity
             android:name=".ui.detail.DetailMovieActivity"
-            android:label="@string/title_activity_detail"
-            android:parentActivityName="com.example.belajarandroidjetpackpro.ui.home.HomeActivity"
+            android:label="@string/title_activity_detail_movie"
+            android:parentActivityName=".ui.home.HomeActivity"
             android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

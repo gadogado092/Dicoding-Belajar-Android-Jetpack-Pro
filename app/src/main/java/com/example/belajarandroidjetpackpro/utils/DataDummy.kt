@@ -2,6 +2,7 @@ package com.example.belajarandroidjetpackpro.utils
 
 import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.data.MovieEntity
+import com.example.belajarandroidjetpackpro.data.TvEntity
 
 object DataDummy {
     fun generateDummyMovie(): List<MovieEntity> {
@@ -106,5 +107,109 @@ object DataDummy {
             )
         )
         return movies
+    }
+
+    fun generateDummyTv(): List<TvEntity> {
+        val tv = ArrayList<TvEntity>()
+        tv.add(
+            TvEntity(
+                "1",
+                "The Arrow",
+                "10/10/2012",
+                R.drawable.poster_arrow,
+                "Panah adalah menceritakan kembali petualangan dari legendaris DC pahlawan Green Arrow",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "2",
+                "Doom Patrol",
+                "15/02/2019",
+                R.drawable.poster_doom_patrol,
+                "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "4",
+                "The Flash",
+                "07/10/2014",
+                R.drawable.poster_flash,
+                "Setelah akselerator partikel menyebabkan badai aneh, Penyelidik CSI Barry Allen disambar petir dan jatuh koma. Beberapa bulan kemudian dia terbangun dengan kekuatan kecepatan super, memberinya kemampuan untuk bergerak melalui Central City seperti malaikat penjaga yang tak terlihat. Meskipun awalnya senang dengan kekuatan barunya, Barry terkejut menemukan bahwa dia bukan satu-satunya \"manusia meta\" yang diciptakan setelah ledakan akselerator - dan tidak semua orang menggunakan kekuatan baru mereka untuk kebaikan. Barry bermitra dengan S.T.A.R. Lab dan mendedikasikan hidupnya untuk melindungi yang tidak bersalah. Untuk saat ini, hanya beberapa teman dekat dan rekan yang tahu bahwa Barry secara harfiah adalah manusia tercepat, tetapi tidak lama sebelum dunia mengetahui apa yang menjadi Barry Allen ... The Flash.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "4",
+                "Gotham",
+                "22/09/2014",
+                R.drawable.poster_gotham,
+                "Semua orang tahu nama Komisaris Gordon. Dia adalah salah satu musuh terbesar dunia kejahatan, seorang pria yang reputasinya identik dengan hukum dan ketertiban. Tapi apa yang diketahui tentang kisah Gordon dan kenaikannya dari detektif pemula ke Komisaris Polisi? Apa yang diperlukan untuk menavigasi berbagai lapisan korupsi yang diam-diam memerintah Kota Gotham, tempat bertelurnya penjahat paling ikonik di dunia? Dan keadaan apa yang menciptakan mereka - persona yang lebih besar dari kehidupan yang akan menjadi Catwoman, The Penguin, The Riddler, Two-Face dan The Joker?",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "5",
+                "Grey's Anatomy",
+                "27/03/2005",
+                R.drawable.poster_grey_anatomy,
+                "Ikuti kehidupan pribadi dan profesional sekelompok dokter di Rumah Sakit Gray Sloan Memorial di Seattle.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "6",
+                "Hanna",
+                "28/03/2019",
+                R.drawable.poster_hanna,
+                "This thriller and coming-of-age drama follows the journey of an extraordinary young girl as she evades the relentless pursuit of an off-book CIA agent and tries to unearth the truth behind who she is. Based on the 2011 Joe Wright film.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "7",
+                "NCIS",
+                "23/09/2003",
+                R.drawable.poster_ncis,
+                "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "8",
+                "Riverdale",
+                "26/01/2017",
+                R.drawable.poster_riverdale,
+                "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "9",
+                "Supergirl",
+                "26/10/2015",
+                R.drawable.poster_supergirl,
+                "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "10",
+                "The Umbrella Academy",
+                "15/02/2019",
+                R.drawable.poster_the_umbrella,
+                "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+            )
+        )
+        tv.add(
+            TvEntity(
+                "11",
+                "The Walking Dead",
+                "31/10/2010",
+                R.drawable.poster_the_walking_dead,
+                "Sheriff's deputy Rick Grimes awakens from a coma to find a post-apocalyptic world dominated by flesh-eating zombies. He sets out to find his family and encounters many other survivors along the way.",
+            )
+        )
+        return tv
     }
 }
