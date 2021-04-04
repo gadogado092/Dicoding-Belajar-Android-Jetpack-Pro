@@ -8,21 +8,21 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.data.MovieEntity
-import com.example.belajarandroidjetpackpro.databinding.ActivityDetailBinding
-import com.example.belajarandroidjetpackpro.databinding.ContentDetailBinding
+import com.example.belajarandroidjetpackpro.databinding.ActivityDetailMovieBinding
+import com.example.belajarandroidjetpackpro.databinding.ContentDetailMovieBinding
 
-class DetailActivity : AppCompatActivity() {
+class DetailMovieActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DETAIL = "extra_detail"
     }
 
-    private lateinit var detailContentBinding: ContentDetailBinding
+    private lateinit var detailContentBinding: ContentDetailMovieBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val activityDetailCourseBinding = ActivityDetailBinding.inflate(layoutInflater)
+        val activityDetailCourseBinding = ActivityDetailMovieBinding.inflate(layoutInflater)
         detailContentBinding = activityDetailCourseBinding.detailContent
 
         setContentView(activityDetailCourseBinding.root)
@@ -46,9 +46,9 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun populateDetail(detail: MovieEntity) {
-        detailContentBinding.textTitle.text = detail.title
-        detailContentBinding.textDescription.text = detail.description
-        detailContentBinding.textDate.text = detail.dateRelease
+        detailContentBinding.textTitleMovie.text = detail.title
+        detailContentBinding.textDescriptionMovie.text = detail.description
+        detailContentBinding.textDateMovie.text = detail.dateRelease
 
         Glide.with(this)
             .load(detail.pathImage)
@@ -57,6 +57,6 @@ class DetailActivity : AppCompatActivity() {
                 RequestOptions.placeholderOf(R.drawable.ic_loading)
                     .error(R.drawable.ic_error)
             )
-            .into(detailContentBinding.imagePoster)
+            .into(detailContentBinding.imagePosterMovie)
     }
 }

@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.data.MovieEntity
 import com.example.belajarandroidjetpackpro.databinding.ItemsMovieBinding
-import com.example.belajarandroidjetpackpro.ui.detail.DetailActivity
+import com.example.belajarandroidjetpackpro.ui.detail.DetailMovieActivity
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     private var listMovie = ArrayList<MovieEntity>()
@@ -39,12 +39,12 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: MovieEntity) {
             with(binding) {
-                tvItemTitle.text = movie.title
-                tvItemDateRelease.text = movie.dateRelease
+                tvItemTitleMovie.text = movie.title
+                tvItemDateReleaseMovie.text = movie.dateRelease
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailActivity::class.java)
-                    intent.putExtra(DetailActivity.EXTRA_DETAIL, movie.id)
+                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
+                    intent.putExtra(DetailMovieActivity.EXTRA_DETAIL, movie.id)
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
@@ -54,7 +54,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
                     )
-                    .into(imgPoster)
+                    .into(imgPosterMovie)
 
             }
         }
