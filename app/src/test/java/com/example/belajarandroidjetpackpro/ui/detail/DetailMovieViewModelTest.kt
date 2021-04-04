@@ -8,7 +8,7 @@ import org.junit.Test
 import org.mockito.Mockito
 
 class DetailMovieViewModelTest  {
-    private lateinit var detatMovieViewModel: DetailMovieViewModel
+    private lateinit var detatilMovieViewModel: DetailMovieViewModel
     private var movie = MovieEntity(
         "4",
         "Aquaman",
@@ -19,13 +19,13 @@ class DetailMovieViewModelTest  {
 
     @Before
     fun before() {
-        detatMovieViewModel = Mockito.mock(DetailMovieViewModel::class.java)
+        detatilMovieViewModel = Mockito.mock(DetailMovieViewModel::class.java)
     }
 
     @Test
     fun testGetDetail() {
-        Mockito.`when`(detatMovieViewModel.getDetail()).thenReturn(movie)
-        val data = detatMovieViewModel.getDetail()
+        Mockito.`when`(detatilMovieViewModel.getDetail()).thenReturn(movie)
+        val data = detatilMovieViewModel.getDetail()
         Assert.assertEquals("Aquaman", data?.title)
     }
 }
