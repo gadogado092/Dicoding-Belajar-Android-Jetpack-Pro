@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BelajarAndroidJetpackPro">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName="com.example.belajarandroidjetpackpro.ui.home.HomeActivity"
+            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.belajarandroidjetpackpro.ui.home.HomeActivity" />
+        </activity>
+        <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
