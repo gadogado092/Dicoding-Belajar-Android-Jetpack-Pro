@@ -30,6 +30,10 @@ class DetailTvActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        activityDetailBinding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+
         val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()

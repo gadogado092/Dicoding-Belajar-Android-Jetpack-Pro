@@ -12,21 +12,12 @@
         <activity
             android:name=".ui.detail.DetailTvActivity"
             android:label="@string/title_activity_detail_tv"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.belajarandroidjetpackpro.ui.home.HomeActivity" />
-        </activity>
+            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar" />
         <activity
             android:name=".ui.detail.DetailMovieActivity"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.belajarandroidjetpackpro.ui.home.HomeActivity" />
-        </activity>
+            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar" />
+
         <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
