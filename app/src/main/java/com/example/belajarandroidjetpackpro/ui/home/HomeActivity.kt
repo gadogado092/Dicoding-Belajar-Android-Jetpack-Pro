@@ -1,9 +1,8 @@
 package com.example.belajarandroidjetpackpro.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.belajarandroidjetpackpro.R
-
 import com.example.belajarandroidjetpackpro.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
