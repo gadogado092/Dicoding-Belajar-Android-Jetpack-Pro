@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.belajarandroidjetpackpro.data.ModuleEntity
 import com.example.belajarandroidjetpackpro.databinding.FragmentModuleContentBinding
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderViewModel
+import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class ModuleContentFragment : Fragment() {
 
@@ -19,29 +20,33 @@ class ModuleContentFragment : Fragment() {
 
     private lateinit var fragmentModuleContentBinding: FragmentModuleContentBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
-        fragmentModuleContentBinding = FragmentModuleContentBinding.inflate(inflater, container, false)
+        fragmentModuleContentBinding =
+            FragmentModuleContentBinding.inflate(inflater, container, false)
         return fragmentModuleContentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[CourseReaderViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel =
+                ViewModelProvider(requireActivity(), factory)[CourseReaderViewModel::class.java]
             val module = viewModel.getSelectedModule()
             populateWebView(module)
         }
     }
 
     private fun populateWebView(module: ModuleEntity) {
-        fragmentModuleContentBinding.webView.loadData(module.contentEntity?.content ?: "", "text/html", "UTF-8")
+        fragmentModuleContentBinding.webView.loadData(
+            module.contentEntity?.content ?: "",
+            "text/html",
+            "UTF-8"
+        )
     }
 
 }

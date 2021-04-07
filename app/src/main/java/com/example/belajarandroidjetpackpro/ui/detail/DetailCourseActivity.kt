@@ -15,6 +15,7 @@ import com.example.belajarandroidjetpackpro.databinding.ActivityDetailCourseBind
 import com.example.belajarandroidjetpackpro.databinding.ContentDetailCourseBinding
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderActivity
 import com.example.belajarandroidjetpackpro.utils.DataDummy
+import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class DetailCourseActivity : AppCompatActivity() {
 
@@ -37,9 +38,10 @@ class DetailCourseActivity : AppCompatActivity() {
 
         val adapter = DetailCourseAdapter()
 
+        val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(
             this,
-            ViewModelProvider.NewInstanceFactory()
+            factory
         )[DetailCourseViewModel::class.java]
 
         val extras = intent.extras

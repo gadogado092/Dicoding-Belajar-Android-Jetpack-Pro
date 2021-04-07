@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.ui.reader.content.ModuleContentFragment
 import com.example.belajarandroidjetpackpro.ui.reader.list.ModuleListFragment
+import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class CourseReaderActivity : AppCompatActivity(), CourseReaderCallback {
 
@@ -17,7 +18,9 @@ class CourseReaderActivity : AppCompatActivity(), CourseReaderCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_reader)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CourseReaderViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+
+        val viewModel = ViewModelProvider(this, factory)[CourseReaderViewModel::class.java]
 
 
         val bundle = intent.extras
@@ -32,7 +35,8 @@ class CourseReaderActivity : AppCompatActivity(), CourseReaderCallback {
 
     override fun moveTo(position: Int, moduleId: String) {
         val fragment = ModuleContentFragment.newInstance()
-        supportFragmentManager.beginTransaction().add(R.id.frame_container, fragment, ModuleContentFragment.TAG)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frame_container, fragment, ModuleContentFragment.TAG)
             .addToBackStack(null)
             .commit()
     }
