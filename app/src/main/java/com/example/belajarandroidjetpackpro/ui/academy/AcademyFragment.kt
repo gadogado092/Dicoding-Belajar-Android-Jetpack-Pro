@@ -17,11 +17,6 @@ class AcademyFragment : Fragment() {
     private lateinit var fragmentAcademyBinding: FragmentAcademyBinding
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         fragmentAcademyBinding = FragmentAcademyBinding.inflate(layoutInflater, container, false)
         return fragmentAcademyBinding.root
@@ -34,7 +29,14 @@ class AcademyFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[AcademyViewModel::class.java]
             val courses = viewModel.getCourses()
             val academyAdapter = AcademyAdapter()
-            academyAdapter.setCourses(courses)
+
+            fragmentAcademyBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getCourses().observe(this, { courses ->
+                fragmentAcademyBinding.progressBar.visibility = View.GONE
+                academyAdapter.setCourses(courses)
+                academyAdapter.notifyDataSetChanged()
+            })
+
             with(fragmentAcademyBinding.rvAcademy) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
