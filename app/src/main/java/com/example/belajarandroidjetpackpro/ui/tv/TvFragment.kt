@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.belajarandroidjetpackpro.databinding.FragmentTvBinding
+import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class TvFragment : Fragment() {
 
@@ -24,9 +25,10 @@ class TvFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
+            val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(
                 this,
-                ViewModelProvider.NewInstanceFactory()
+                factory,
             )[TvViewModel::class.java]
             val dataTv = viewModel.getTv()
             val tvAdapter = TvAdapter()

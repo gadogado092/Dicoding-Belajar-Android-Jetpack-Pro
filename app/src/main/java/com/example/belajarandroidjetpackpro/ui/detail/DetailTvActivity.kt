@@ -10,6 +10,7 @@ import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.data.TvEntity
 import com.example.belajarandroidjetpackpro.databinding.ActivityDetailTvBinding
 import com.example.belajarandroidjetpackpro.databinding.ContentDetailTvBinding
+import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class DetailTvActivity : AppCompatActivity() {
 
@@ -34,9 +35,10 @@ class DetailTvActivity : AppCompatActivity() {
             finish()
         }
 
+        val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(
             this,
-            ViewModelProvider.NewInstanceFactory()
+            factory
         )[DetailTvViewModel::class.java]
 
         val extras = intent.extras
@@ -55,7 +57,13 @@ class DetailTvActivity : AppCompatActivity() {
         detailContentBinding.textDateTv.text = detail.dateRelease
 
         Glide.with(this)
-            .load(detail.pathImage)
+            .load(
+                this.resources.getIdentifier(
+                    detail.pathImage,
+                    "drawable",
+                    this.packageName
+                )
+            )
             .transform(RoundedCorners(20))
             .apply(
                 RequestOptions.placeholderOf(R.drawable.ic_loading)

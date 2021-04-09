@@ -4,6 +4,6 @@ data class MovieEntity(
     var id: String,
     var title: String,
     var dateRelease: String,
-    var pathImage: Int,
+    var pathImage: String,
     var description: String,
 )

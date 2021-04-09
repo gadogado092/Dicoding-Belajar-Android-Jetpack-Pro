@@ -2,9 +2,9 @@ package com.example.belajarandroidjetpackpro.ui.detail
 
 import androidx.lifecycle.ViewModel
 import com.example.belajarandroidjetpackpro.data.TvEntity
-import com.example.belajarandroidjetpackpro.utils.DataDummy
+import com.example.belajarandroidjetpackpro.data.source.MovieRepository
 
-class DetailTvViewModel : ViewModel() {
+class DetailTvViewModel(private val repository: MovieRepository) : ViewModel() {
     private lateinit var id: String
 
     fun setSelected(id: String) {
@@ -12,12 +12,6 @@ class DetailTvViewModel : ViewModel() {
     }
 
     fun getDetail(): TvEntity? {
-        var detail: TvEntity? = null
-        for (tvEntity in DataDummy.generateDummyTv()) {
-            if (tvEntity.id == id) {
-                detail = tvEntity
-            }
-        }
-        return detail
+        return repository.getDetailTv(id)
     }
 }

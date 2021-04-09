@@ -48,7 +48,13 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
-                    .load(movie.pathImage)
+                    .load(
+                        itemView.context.resources.getIdentifier(
+                            movie.pathImage,
+                            "drawable",
+                            itemView.context.packageName
+                        )
+                    )
                     .centerCrop()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)

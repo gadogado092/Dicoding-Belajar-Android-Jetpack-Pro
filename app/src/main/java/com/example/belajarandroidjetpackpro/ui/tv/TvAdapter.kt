@@ -19,6 +19,7 @@ class TvAdapter : RecyclerView.Adapter<TvAdapter.TvViewHolder>() {
         this.listTv.clear()
         this.listTv.addAll(listMovie)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvViewHolder {
         val itemsTvBinding =
             ItemsTvBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -47,7 +48,13 @@ class TvAdapter : RecyclerView.Adapter<TvAdapter.TvViewHolder>() {
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
-                    .load(tv.pathImage)
+                    .load(
+                        itemView.context.resources.getIdentifier(
+                            tv.pathImage,
+                            "drawable",
+                            itemView.context.packageName
+                        )
+                    )
                     .centerCrop()
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)

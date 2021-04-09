@@ -1,0 +1,81 @@
+{
+  "tv": [
+    {
+      "id": "1",
+      "title": "The Arrow",
+      "dateRelease": "10/10/2012",
+      "imageDrawable": "poster_arrow",
+      "description": "Panah adalah menceritakan kembali petualangan dari legendaris DC pahlawan Green Arrow"
+    },
+    {
+      "id": "2",
+      "title": "Doom Patrol",
+      "dateRelease": "15/02/2019",
+      "imageDrawable": "poster_doom_patrol",
+      "description": "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find."
+    },
+    {
+      "id": "3",
+      "title": "The Flash",
+      "dateRelease": "07/10/2014",
+      "imageDrawable": "poster_flash",
+      "description": "Setelah akselerator partikel menyebabkan badai aneh, Penyelidik CSI Barry Allen disambar petir dan jatuh koma. Beberapa bulan kemudian dia terbangun dengan kekuatan kecepatan super, memberinya kemampuan untuk bergerak melalui Central City seperti malaikat penjaga yang tak terlihat. Meskipun awalnya senang dengan kekuatan barunya, Barry terkejut menemukan bahwa dia bukan satu-satunya \"manusia meta\" yang diciptakan setelah ledakan akselerator - dan tidak semua orang menggunakan kekuatan baru mereka untuk kebaikan. Barry bermitra dengan S.T.A.R. Lab dan mendedikasikan hidupnya untuk melindungi yang tidak bersalah. Untuk saat ini, hanya beberapa teman dekat dan rekan yang tahu bahwa Barry secara harfiah adalah manusia tercepat, tetapi tidak lama sebelum dunia mengetahui apa yang menjadi Barry Allen ... The Flash."
+    },
+    {
+      "id": "4",
+      "title": "Gotham",
+      "dateRelease": "22/09/2014",
+      "imageDrawable": "poster_gotham",
+      "description": "Semua orang tahu nama Komisaris Gordon. Dia adalah salah satu musuh terbesar dunia kejahatan, seorang pria yang reputasinya identik dengan hukum dan ketertiban. Tapi apa yang diketahui tentang kisah Gordon dan kenaikannya dari detektif pemula ke Komisaris Polisi? Apa yang diperlukan untuk menavigasi berbagai lapisan korupsi yang diam-diam memerintah Kota Gotham, tempat bertelurnya penjahat paling ikonik di dunia? Dan keadaan apa yang menciptakan mereka - persona yang lebih besar dari kehidupan yang akan menjadi Catwoman, The Penguin, The Riddler, Two-Face dan The Joker?"
+    },
+    {
+      "id": "5",
+      "title": "Grey's Anatomy",
+      "dateRelease": "27/03/2005",
+      "imageDrawable": "poster_grey_anatomy",
+      "description": "Ikuti kehidupan pribadi dan profesional sekelompok dokter di Rumah Sakit Gray Sloan Memorial di Seattle."
+    },
+    {
+      "id": "6",
+      "title": "Hanna",
+      "dateRelease": "28/03/2019",
+      "imageDrawable": "poster_hanna",
+      "description": "This thriller and coming-of-age drama follows the journey of an extraordinary young girl as she evades the relentless pursuit of an off-book CIA agent and tries to unearth the truth behind who she is. Based on the 2011 Joe Wright film."
+    },
+    {
+      "id": "7",
+      "title": "NCIS",
+      "dateRelease": "23/09/2003",
+      "imageDrawable": "poster_ncis",
+      "description": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position."
+    },
+    {
+      "id": "8",
+      "title": "Riverdale",
+      "dateRelease": "26/01/2017",
+      "imageDrawable": "poster_riverdale",
+      "description": "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade."
+    },
+    {
+      "id": "9",
+      "title": "Supergirl",
+      "dateRelease": "26/10/2015",
+      "imageDrawable": "poster_supergirl",
+      "description": "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism."
+    },
+    {
+      "id": "10",
+      "title": "The Umbrella Academy",
+      "dateRelease": "15/02/2019",
+      "imageDrawable": "poster_the_umbrella",
+      "description": "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more."
+    },
+    {
+      "id": "11",
+      "title": "The Walking Dead",
+      "dateRelease": "31/10/2010",
+      "imageDrawable": "poster_the_walking_dead",
+      "description": "KetikaSheriff's deputy Rick Grimes awakens from a coma to find a post-apocalyptic world dominated by flesh-eating zombies. He sets out to find his family and encounters many other survivors along the way."
+    }
+  ]
+}

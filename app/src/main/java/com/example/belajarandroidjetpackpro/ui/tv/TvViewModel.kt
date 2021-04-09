@@ -2,8 +2,8 @@ package com.example.belajarandroidjetpackpro.ui.tv
 
 import androidx.lifecycle.ViewModel
 import com.example.belajarandroidjetpackpro.data.TvEntity
-import com.example.belajarandroidjetpackpro.utils.DataDummy
+import com.example.belajarandroidjetpackpro.data.source.MovieRepository
 
-class TvViewModel : ViewModel() {
-    fun getTv() : List<TvEntity> = DataDummy.generateDummyTv()
+class TvViewModel(private val repository: MovieRepository) : ViewModel() {
+    fun getTv() : List<TvEntity> = repository.getAllTv()
 }

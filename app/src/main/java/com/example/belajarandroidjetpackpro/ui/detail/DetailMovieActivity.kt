@@ -10,6 +10,7 @@ import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.data.MovieEntity
 import com.example.belajarandroidjetpackpro.databinding.ActivityDetailMovieBinding
 import com.example.belajarandroidjetpackpro.databinding.ContentDetailMovieBinding
+import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class DetailMovieActivity : AppCompatActivity() {
 
@@ -34,9 +35,10 @@ class DetailMovieActivity : AppCompatActivity() {
             finish()
         }
 
+        val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(
             this,
-            ViewModelProvider.NewInstanceFactory()
+            factory
         )[DetailMovieViewModel::class.java]
 
         val extras = intent.extras
@@ -55,7 +57,13 @@ class DetailMovieActivity : AppCompatActivity() {
         detailContentBinding.textDateMovie.text = detail.dateRelease
 
         Glide.with(this)
-            .load(detail.pathImage)
+            .load(
+                this.resources.getIdentifier(
+                    detail.pathImage,
+                    "drawable",
+                    this.packageName
+                )
+            )
             .transform(RoundedCorners(20))
             .apply(
                 RequestOptions.placeholderOf(R.drawable.ic_loading)

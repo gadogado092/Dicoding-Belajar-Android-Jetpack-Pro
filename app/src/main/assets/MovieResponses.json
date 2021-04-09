@@ -1,0 +1,81 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "Alita: Battle Angel",
+      "dateRelease": "14/02/2019",
+      "imageDrawable": "poster_alita",
+      "description": "Ketika Alita terbangun tanpa ingatan tentang siapa dia di dunia masa depan yang tidak dia kenal, dia ditangkap oleh Ido, seorang dokter yang penuh kasih yang menyadari bahwa di suatu tempat dalam cangkang cyborg yang ditinggalkan ini adalah hati dan jiwa seorang wanita muda dengan luar biasa. lalu."
+    },
+    {
+      "id": "2",
+      "title": "Serenity",
+      "dateRelease": "25/01/2019",
+      "imageDrawable": "poster_serenity",
+      "description": "The quiet life of Baker Dill, a fishing boat captain who lives on the isolated Plymouth Island, where he spends his days obsessed with capturing an elusive tuna while fighting his personal demons, is interrupted when someone from his past comes to him searching for help."
+    },
+    {
+      "id": "3",
+      "title": "A Star Is Born",
+      "dateRelease": "05/10/2018",
+      "imageDrawable": "poster_a_start_is_born",
+      "description": "Seorang bintang musik country yang karirnya mulai memudar, Jackson Maine (Bradley Cooper) menemukan sebuah talenta yang sangat berbakat di dalam diri dari seorang musisi muda bernama Ally (Lady Gaga). Maine berhasil mengorbitkan Ally menjadi seorang bintang muda yang menjanjikan. Namun keduanya terlibat hubungan yang lebih jauh dari sekedar mentor dan anak didik. Seiring dengan meroketnya karir dari Ally dan dirinya, Maine mengalami dilema mengenai masalah ini."
+    },
+    {
+      "id": "4",
+      "title": "Aquaman",
+      "dateRelease": "21/12/2018",
+      "imageDrawable": "poster_aquaman",
+      "description": "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne."
+    },
+    {
+      "id": "5",
+      "title": "Bohemian Rhapsody",
+      "dateRelease": "02/11/2018",
+      "imageDrawable": "poster_bohemian",
+      "description": "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess."
+    },
+    {
+      "id": "6",
+      "title": "Cold Pursuit",
+      "dateRelease": "08/02/2019",
+      "imageDrawable": "poster_cold_persuit",
+      "description": "The quiet family life of Nels Coxman, a snowplow driver, is upended after his son's murder. Nels begins a vengeful hunt for Viking, the drug lord he holds responsible for the killing, eliminating Viking's associates one by one. As Nels draws closer to Viking, his actions bring even more unexpected and violent consequences, as he proves that revenge is all in the execution."
+    },
+    {
+      "id": "7",
+      "title": "Glass",
+      "dateRelease": "18/01/2019",
+      "imageDrawable": "poster_glass",
+      "description": "In a series of escalating encounters, former security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities. Meanwhile, the shadowy presence of Elijah Price emerges as an orchestrator who holds secrets critical to both men."
+    },
+    {
+      "id": "8",
+      "title": "Avengers: Infinity War",
+      "dateRelease": "27/04/2018",
+      "imageDrawable": "poster_infinity_war",
+      "description": "Karena Avengers dan sekutunya terus melindungi dunia dari ancaman yang terlalu besar untuk ditangani oleh seorang pahlawan, bahaya baru telah muncul dari bayangan kosmik: Thanos. Seorang lalim penghujatan intergalaksi, tujuannya adalah untuk mengumpulkan semua enam Batu Infinity, artefak kekuatan yang tak terbayangkan, dan menggunakannya untuk menimbulkan kehendak memutar pada semua realitas. Segala sesuatu yang telah diperjuangkan oleh Avengers telah berkembang hingga saat ini - nasib Bumi dan keberadaannya sendiri tidak pernah lebih pasti."
+    },
+    {
+      "id": "9",
+      "title": "Overlord",
+      "dateRelease": "09/11/2018",
+      "imageDrawable": "poster_overlord",
+      "description": "France, June 1944. On the eve of D-Day, some American paratroopers fall behind enemy lines after their aircraft crashes while on a mission to destroy a radio tower in a small village near the beaches of Normandy. After reaching their target, the surviving paratroopers realise that, in addition to fighting the Nazi troops that patrol the village, they also must fight against something else."
+    },
+    {
+      "id": "10",
+      "title": "Robin Hood",
+      "dateRelease": "21/11/2018",
+      "imageDrawable": "poster_robin_hood",
+      "description": "A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown."
+    },
+    {
+      "id": "11",
+      "title": "T-34",
+      "dateRelease": "27/12/2018",
+      "imageDrawable": "poster_t34",
+      "description": "Ketika Alita terbangun tanpa ingatan tentang siapa dia di dunia masa depan yang tidak dia kenal, dia ditangkap oleh Ido, seorang dokter yang penuh kasih yang menyadari bahwa di suatu tempat dalam cangkang cyborg yang ditinggalkan ini adalah hati dan jiwa seorang wanita muda dengan luar biasa. lalu."
+    }
+  ]
+}
