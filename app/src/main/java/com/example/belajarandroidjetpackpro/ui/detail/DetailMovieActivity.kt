@@ -1,6 +1,7 @@
 package com.example.belajarandroidjetpackpro.ui.detail
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -45,8 +46,12 @@ class DetailMovieActivity : AppCompatActivity() {
         if (extras != null) {
             val id = extras.getString(EXTRA_DETAIL)
             if (id != null) {
+                activityDetailBinding.progressBar.visibility = View.VISIBLE
                 viewModel.setSelected(id)
-                populateDetail(viewModel.getDetail() as MovieEntity)
+                viewModel.getDetail().observe(this, { detail ->
+                    activityDetailBinding.progressBar.visibility = View.GONE
+                    detail?.let { populateDetail(it) }
+                })
             }
         }
     }

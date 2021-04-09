@@ -1,5 +1,6 @@
 package com.example.belajarandroidjetpackpro.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.belajarandroidjetpackpro.data.MovieEntity
 import com.example.belajarandroidjetpackpro.data.source.MovieRepository
@@ -11,7 +12,7 @@ class DetailMovieViewModel(private val repository: MovieRepository) : ViewModel(
         this.id = id
     }
 
-    fun getDetail(): MovieEntity? {
+    fun getDetail(): LiveData<MovieEntity?> {
         return repository.getDetailMovie(id)
     }
 }

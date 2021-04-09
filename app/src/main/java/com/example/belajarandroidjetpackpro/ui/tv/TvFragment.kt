@@ -30,9 +30,15 @@ class TvFragment : Fragment() {
                 this,
                 factory,
             )[TvViewModel::class.java]
-            val dataTv = viewModel.getTv()
             val tvAdapter = TvAdapter()
-            tvAdapter.setTv(dataTv)
+
+            fragmentTvBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getTv().observe(viewLifecycleOwner,{ tv->
+                fragmentTvBinding.progressBar.visibility = View.GONE
+                tvAdapter.setTv(tv)
+                tvAdapter.notifyDataSetChanged()
+            })
+
             with(fragmentTvBinding.rvTv) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

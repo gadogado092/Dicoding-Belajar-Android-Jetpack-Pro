@@ -1,8 +1,12 @@
 package com.example.belajarandroidjetpackpro.data.source
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.belajarandroidjetpackpro.data.MovieEntity
 import com.example.belajarandroidjetpackpro.data.TvEntity
 import com.example.belajarandroidjetpackpro.data.source.remote.RemoteDataSource
+import com.example.belajarandroidjetpackpro.data.source.remote.response.MovieResponse
+import com.example.belajarandroidjetpackpro.data.source.remote.response.TvResponse
 
 class MovieRepository private constructor(private val remoteDataSource: RemoteDataSource) :
     MovieDataSource {
@@ -15,71 +19,94 @@ class MovieRepository private constructor(private val remoteDataSource: RemoteDa
             }
     }
 
-    override fun getAllMovie(): List<MovieEntity> {
-        val movieResponses = remoteDataSource.getAllMovie()
-        val movieList = ArrayList<MovieEntity>()
-        for (response in movieResponses) {
-            val movie = MovieEntity(
-                response.id,
-                response.title,
-                response.dateRelease,
-                response.pathImage,
-                response.description
-            )
-            movieList.add(movie)
-        }
-        return movieList
-    }
-
-    override fun getAllTv(): List<TvEntity> {
-        val tvResponses = remoteDataSource.getAllTv()
-        val tvList = ArrayList<TvEntity>()
-        for (response in tvResponses) {
-            val tv = TvEntity(
-                response.id,
-                response.title,
-                response.dateRelease,
-                response.pathImage,
-                response.description
-            )
-            tvList.add(tv)
-        }
-        return tvList
-    }
-
-    override fun getDetailMovie(movieId: String): MovieEntity? {
-        val movieResponses = remoteDataSource.getAllMovie()
-        var detail: MovieEntity? = null
-        for (response in movieResponses) {
-            if (response.id == movieId) {
-                detail = MovieEntity(
-                    response.id,
-                    response.title,
-                    response.dateRelease,
-                    response.pathImage,
-                    response.description
-                )
+    override fun getAllMovie(): LiveData<List<MovieEntity>> {
+        val movieResults = MutableLiveData<List<MovieEntity>>()
+        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMoviesCallback {
+            override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
+                val movieList = ArrayList<MovieEntity>()
+                for (response in movieResponses) {
+                    val movie = MovieEntity(
+                        response.id,
+                        response.title,
+                        response.dateRelease,
+                        response.pathImage,
+                        response.description
+                    )
+                    movieList.add(movie)
+                }
+                movieResults.postValue(movieList)
             }
 
-        }
-        return detail
+        })
+        return movieResults
     }
 
-    override fun getDetailTv(tvId: String): TvEntity? {
-        val tvResponses = remoteDataSource.getAllTv()
-        var detail: TvEntity? = null
-        for (response in tvResponses) {
-            if (response.id == tvId) {
-                detail = TvEntity(
-                    response.id,
-                    response.title,
-                    response.dateRelease,
-                    response.pathImage,
-                    response.description
-                )
+    override fun getAllTv(): LiveData<List<TvEntity>> {
+        val tvResults = MutableLiveData<List<TvEntity>>()
+        remoteDataSource.getAllTv(object : RemoteDataSource.LoadTvCallback {
+            override fun onAllTvReceived(tvResponses: List<TvResponse>) {
+                val tvList = ArrayList<TvEntity>()
+                for (response in tvResponses) {
+                    val tv = TvEntity(
+                        response.id,
+                        response.title,
+                        response.dateRelease,
+                        response.pathImage,
+                        response.description
+                    )
+                    tvList.add(tv)
+                }
+                tvResults.postValue(tvList)
+            }
+        })
+        return tvResults
+    }
+
+    override fun getDetailMovie(movieId: String): LiveData<MovieEntity?> {
+        val detailResults = MutableLiveData<MovieEntity>()
+        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMoviesCallback {
+            override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
+                var detail: MovieEntity? = null
+                for (response in movieResponses) {
+                    if (response.id == movieId) {
+                        detail = MovieEntity(
+                            response.id,
+                            response.title,
+                            response.dateRelease,
+                            response.pathImage,
+                            response.description
+                        )
+                    }
+                }
+                detailResults.postValue(detail)
             }
 
-        }
-        return detail
+        })
+
+        return detailResults
+    }
+
+    override fun getDetailTv(tvId: String): LiveData<TvEntity?> {
+        val detailResult = MutableLiveData<TvEntity>()
+
+        remoteDataSource.getAllTv(object : RemoteDataSource.LoadTvCallback {
+            override fun onAllTvReceived(tvResponses: List<TvResponse>) {
+                var detail: TvEntity? = null
+                for (response in tvResponses) {
+                    if (response.id == tvId) {
+                        detail = TvEntity(
+                            response.id,
+                            response.title,
+                            response.dateRelease,
+                            response.pathImage,
+                            response.description
+                        )
+                    }
+                }
+                detailResult.postValue(detail)
+            }
+        })
+
+        return detailResult
     }
 }
