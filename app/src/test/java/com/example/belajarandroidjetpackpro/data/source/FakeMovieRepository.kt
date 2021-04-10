@@ -8,23 +8,14 @@ import com.example.belajarandroidjetpackpro.data.source.remote.RemoteDataSource
 import com.example.belajarandroidjetpackpro.data.source.remote.response.MovieResponse
 import com.example.belajarandroidjetpackpro.data.source.remote.response.TvResponse
 
-class MovieRepository private constructor(private val remoteDataSource: RemoteDataSource) :
-    MovieDataSource {
-    companion object {
-        @Volatile
-        private var instance: MovieRepository? = null
-        fun getInstance(remoteData: RemoteDataSource): MovieRepository =
-            instance ?: synchronized(this) {
-                instance ?: MovieRepository(remoteData).apply { instance = this }
-            }
-    }
-
+class FakeMovieRepository(private val remoteDataSource: RemoteDataSource) : MovieDataSource {
     override fun getAllMovie(): LiveData<List<MovieEntity>> {
-        val movieResults = MutableLiveData<List<MovieEntity>>()
-        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMoviesCallback {
+        val movieResult = MutableLiveData<List<MovieEntity>>()
+        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMoviesCallback{
             override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
-                val movieList = ArrayList<MovieEntity>()
-                for (response in movieResponses) {
+                val movies= ArrayList<MovieEntity>()
+                for (index in movieResponses.indices){
+                    val response = movieResponses[index]
                     val movie = MovieEntity(
                         response.id,
                         response.title,
@@ -32,34 +23,34 @@ class MovieRepository private constructor(private val remoteDataSource: RemoteDa
                         response.pathImage,
                         response.description
                     )
-                    movieList.add(movie)
+                    movies.add(movie)
                 }
-                movieResults.postValue(movieList)
+                movieResult.postValue(movies)
             }
-
         })
-        return movieResults
+        return movieResult
     }
 
     override fun getAllTv(): LiveData<List<TvEntity>> {
-        val tvResults = MutableLiveData<List<TvEntity>>()
-        remoteDataSource.getAllTv(object : RemoteDataSource.LoadTvCallback {
+        val movieResult = MutableLiveData<List<TvEntity>>()
+        remoteDataSource.getAllTv(object : RemoteDataSource.LoadTvCallback{
             override fun onAllTvReceived(tvResponses: List<TvResponse>) {
-                val tvList = ArrayList<TvEntity>()
-                for (response in tvResponses) {
-                    val tv = TvEntity(
+                val tv= ArrayList<TvEntity>()
+                for (index in tvResponses.indices){
+                    val response = tvResponses[index]
+                    val movie = TvEntity(
                         response.id,
                         response.title,
                         response.dateRelease,
                         response.pathImage,
                         response.description
                     )
-                    tvList.add(tv)
+                    tv.add(movie)
                 }
-                tvResults.postValue(tvList)
+                movieResult.postValue(tv)
             }
         })
-        return tvResults
+        return movieResult
     }
 
     override fun getDetailMovie(movieId: String): LiveData<MovieEntity?> {

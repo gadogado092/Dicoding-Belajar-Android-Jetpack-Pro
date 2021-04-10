@@ -11,7 +11,7 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
     private val handler = Handler(Looper.getMainLooper())
 
     companion object {
-        private const val SERVICE_LATENCY_IN_MILLIS: Long = 3000
+        private const val SERVICE_LATENCY_IN_MILLIS: Long = 2000
 
         @Volatile
         private var instance: RemoteDataSource? = null
@@ -30,9 +30,26 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
         handler.postDelayed({ callback.onAllTvReceived(jsonHelper.loadTv()) }, SERVICE_LATENCY_IN_MILLIS)
     }
 
+    fun getDetailMovie(callback: LoadDetailMovieCallback, id: String){
+        handler.postDelayed({ callback.onDetailMoviesReceived(jsonHelper.loadDetailMovie(id)) }, SERVICE_LATENCY_IN_MILLIS)
+    }
+
+    fun getDetailTv(callback: LoadDetailTvCallback, id: String){
+        handler.postDelayed({ callback.onDetailTvReceived(jsonHelper.loadDetailTv(id)) }, SERVICE_LATENCY_IN_MILLIS)
+    }
+
     interface LoadMoviesCallback {
         fun onAllMoviesReceived(movieResponses: List<MovieResponse>)
     }
+
+    interface LoadDetailMovieCallback {
+        fun onDetailMoviesReceived(movieResponses: MovieResponse)
+    }
+
+    interface LoadDetailTvCallback {
+        fun onDetailTvReceived(tvResponses: TvResponse)
+    }
+
     interface LoadTvCallback {
         fun onAllTvReceived(tvResponses: List<TvResponse>)
     }

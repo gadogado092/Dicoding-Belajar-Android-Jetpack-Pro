@@ -29,13 +29,13 @@ class JsonHelper(private val context: Context) {
             val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
             val listArray = responseObject.getJSONArray("movies")
             for (i in 0 until listArray.length()) {
-                val course = listArray.getJSONObject(i)
+                val movie = listArray.getJSONObject(i)
 
-                val id = course.getString("id")
-                val title = course.getString("title")
-                val dateRelease = course.getString("dateRelease")
-                val pathImage = course.getString("imageDrawable")
-                val description = course.getString("description")
+                val id = movie.getString("id")
+                val title = movie.getString("title")
+                val dateRelease = movie.getString("dateRelease")
+                val pathImage = movie.getString("imageDrawable")
+                val description = movie.getString("description")
 
                 val movieResponse = MovieResponse(id, title, dateRelease, pathImage, description)
                 list.add(movieResponse)
@@ -53,13 +53,13 @@ class JsonHelper(private val context: Context) {
             val responseObject = JSONObject(parsingFileToString("TvResponses.json").toString())
             val listArray = responseObject.getJSONArray("tv")
             for (i in 0 until listArray.length()) {
-                val course = listArray.getJSONObject(i)
+                val tv = listArray.getJSONObject(i)
 
-                val id = course.getString("id")
-                val title = course.getString("title")
-                val dateRelease = course.getString("dateRelease")
-                val pathImage = course.getString("imageDrawable")
-                val description = course.getString("description")
+                val id = tv.getString("id")
+                val title = tv.getString("title")
+                val dateRelease = tv.getString("dateRelease")
+                val pathImage = tv.getString("imageDrawable")
+                val description = tv.getString("description")
 
                 val tvResponse = TvResponse(id, title, dateRelease, pathImage, description)
                 list.add(tvResponse)
@@ -69,5 +69,55 @@ class JsonHelper(private val context: Context) {
         }
 
         return list
+    }
+
+    fun loadDetailMovie(idMovie: String): MovieResponse {
+        var data: MovieResponse? = null
+        try {
+            val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
+            val listArray = responseObject.getJSONArray("movies")
+            for (i in 0 until listArray.length()) {
+                val movie = listArray.getJSONObject(i)
+
+                val id = movie.getString("id")
+                if (idMovie == id) {
+                    val title = movie.getString("title")
+                    val dateRelease = movie.getString("dateRelease")
+                    val pathImage = movie.getString("imageDrawable")
+                    val description = movie.getString("description")
+
+                    data = MovieResponse(id, title, dateRelease, pathImage, description)
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        return data as MovieResponse
+    }
+
+    fun loadDetailTv(idTv: String): TvResponse {
+        var data: TvResponse? = null
+        try {
+            val responseObject = JSONObject(parsingFileToString("TvResponses.json").toString())
+            val listArray = responseObject.getJSONArray("tv")
+            for (i in 0 until listArray.length()) {
+                val tv = listArray.getJSONObject(i)
+
+                val id = tv.getString("id")
+                if (idTv == id) {
+                    val title = tv.getString("title")
+                    val dateRelease = tv.getString("dateRelease")
+                    val pathImage = tv.getString("imageDrawable")
+                    val description = tv.getString("description")
+
+                    data = TvResponse(id, title, dateRelease, pathImage, description)
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        return data as TvResponse
     }
 }
