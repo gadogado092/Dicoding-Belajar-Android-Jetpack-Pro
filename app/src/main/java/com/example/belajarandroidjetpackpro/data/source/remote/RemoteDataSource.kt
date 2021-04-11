@@ -4,9 +4,10 @@ import android.os.Handler
 import android.os.Looper
 import com.example.belajarandroidjetpackpro.data.source.remote.response.MovieResponse
 import com.example.belajarandroidjetpackpro.data.source.remote.response.TvResponse
+import com.example.belajarandroidjetpackpro.utils.EspressoIdlingResource
 import com.example.belajarandroidjetpackpro.utils.JsonHelper
 
-class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
+class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
     private val handler = Handler(Looper.getMainLooper())
 
@@ -22,20 +23,45 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper){
             }
     }
 
-    fun getAllMovie(callback: LoadMoviesCallback){
-        handler.postDelayed({ callback.onAllMoviesReceived(jsonHelper.loadMovie()) }, SERVICE_LATENCY_IN_MILLIS)
+    fun getAllMovie(callback: LoadMoviesCallback) {
+        EspressoIdlingResource.increment()
+        handler.postDelayed(
+            {
+                callback.onAllMoviesReceived(jsonHelper.loadMovie())
+                EspressoIdlingResource.decrement()
+            },
+            SERVICE_LATENCY_IN_MILLIS
+        )
     }
 
-    fun getAllTv(callback: LoadTvCallback){
-        handler.postDelayed({ callback.onAllTvReceived(jsonHelper.loadTv()) }, SERVICE_LATENCY_IN_MILLIS)
+    fun getAllTv(callback: LoadTvCallback) {
+        EspressoIdlingResource.increment()
+        handler.postDelayed(
+            {
+                callback.onAllTvReceived(jsonHelper.loadTv())
+                EspressoIdlingResource.decrement()
+            },
+            SERVICE_LATENCY_IN_MILLIS
+        )
     }
 
-    fun getDetailMovie(callback: LoadDetailMovieCallback, id: String){
-        handler.postDelayed({ callback.onDetailMoviesReceived(jsonHelper.loadDetailMovie(id)) }, SERVICE_LATENCY_IN_MILLIS)
+    fun getDetailMovie(callback: LoadDetailMovieCallback, id: String) {
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onDetailMoviesReceived(jsonHelper.loadDetailMovie(id))
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
-    fun getDetailTv(callback: LoadDetailTvCallback, id: String){
-        handler.postDelayed({ callback.onDetailTvReceived(jsonHelper.loadDetailTv(id)) }, SERVICE_LATENCY_IN_MILLIS)
+    fun getDetailTv(callback: LoadDetailTvCallback, id: String) {
+        EspressoIdlingResource.increment()
+        handler.postDelayed(
+            {
+                callback.onDetailTvReceived(jsonHelper.loadDetailTv(id))
+                EspressoIdlingResource.decrement()
+            },
+            SERVICE_LATENCY_IN_MILLIS
+        )
     }
 
     interface LoadMoviesCallback {
