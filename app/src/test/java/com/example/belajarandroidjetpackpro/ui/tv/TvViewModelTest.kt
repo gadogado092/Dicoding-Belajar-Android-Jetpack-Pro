@@ -7,7 +7,6 @@ import com.example.belajarandroidjetpackpro.data.TvEntity
 import com.example.belajarandroidjetpackpro.data.source.MovieRepository
 import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
-import junit.framework.Assert.assertNotNull
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
