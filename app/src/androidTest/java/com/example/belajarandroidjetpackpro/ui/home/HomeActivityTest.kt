@@ -65,6 +65,30 @@ class HomeActivityTest{
             )
         )
         onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                6
+            )
+        )
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                6,
+                click()
+            )
+        )
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                4
+            )
+        )
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                4,
+                click()
+            )
+        )
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.view_pager)).perform(swipeLeft())
         onView(withId(R.id.rv_tv)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_tv)).perform(
