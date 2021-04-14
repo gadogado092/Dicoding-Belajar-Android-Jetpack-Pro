@@ -9,9 +9,8 @@ import androidx.core.app.ShareCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.data.CourseEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.CourseEntity
 import com.example.belajarandroidjetpackpro.databinding.FragmentBookmarkBinding
-import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class BookmarkFragment : Fragment(), BookmarkFragmentCallback {

@@ -3,7 +3,7 @@ package com.example.belajarandroidjetpackpro.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.belajarandroidjetpackpro.data.source.AcademyRepository
+import com.example.belajarandroidjetpackpro.data.AcademyRepository
 import com.example.belajarandroidjetpackpro.di.Injection
 import com.example.belajarandroidjetpackpro.ui.academy.AcademyViewModel
 import com.example.belajarandroidjetpackpro.ui.bookmark.BookmarkViewModel

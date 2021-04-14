@@ -9,13 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.data.ModuleEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.ModuleEntity
 import com.example.belajarandroidjetpackpro.databinding.FragmentModuleListBinding
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderActivity
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderCallback
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderViewModel
-import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 

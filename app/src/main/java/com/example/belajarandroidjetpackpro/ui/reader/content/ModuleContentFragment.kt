@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.belajarandroidjetpackpro.data.ModuleEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.ModuleEntity
 import com.example.belajarandroidjetpackpro.databinding.FragmentModuleContentBinding
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderViewModel
 import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory

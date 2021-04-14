@@ -3,7 +3,7 @@ package com.example.belajarandroidjetpackpro.ui.detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.belajarandroidjetpackpro.data.ModuleEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.ModuleEntity
 import com.example.belajarandroidjetpackpro.databinding.ItemsModuleListBinding
 
 class DetailCourseAdapter : RecyclerView.Adapter<DetailCourseAdapter.ModuleViewHolder>() {

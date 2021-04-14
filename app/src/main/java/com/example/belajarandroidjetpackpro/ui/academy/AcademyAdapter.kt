@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.data.CourseEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.CourseEntity
 import com.example.belajarandroidjetpackpro.databinding.ItemsAcademyBinding
 import com.example.belajarandroidjetpackpro.ui.detail.DetailCourseActivity
 

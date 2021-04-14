@@ -11,11 +11,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.data.CourseEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.CourseEntity
 import com.example.belajarandroidjetpackpro.databinding.ActivityDetailCourseBinding
 import com.example.belajarandroidjetpackpro.databinding.ContentDetailCourseBinding
 import com.example.belajarandroidjetpackpro.ui.reader.CourseReaderActivity
-import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
 
 class DetailCourseActivity : AppCompatActivity() {

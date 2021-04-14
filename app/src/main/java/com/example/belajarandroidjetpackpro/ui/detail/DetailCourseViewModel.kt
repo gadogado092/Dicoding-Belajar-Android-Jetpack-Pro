@@ -1,31 +1,33 @@
 package com.example.belajarandroidjetpackpro.ui.detail
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.example.belajarandroidjetpackpro.data.CourseEntity
-import com.example.belajarandroidjetpackpro.data.ModuleEntity
-import com.example.belajarandroidjetpackpro.data.source.AcademyRepository
-import com.example.belajarandroidjetpackpro.utils.DataDummy
+import com.example.belajarandroidjetpackpro.data.AcademyRepository
+import com.example.belajarandroidjetpackpro.data.source.local.entity.CourseWithModule
+import com.example.belajarandroidjetpackpro.vo.Resource
 
 class DetailCourseViewModel(private val academyRepository: AcademyRepository) : ViewModel() {
-
-    private lateinit var courseId: String
+    val courseId = MutableLiveData<String>()
 
     fun setSelectedCourse(courseId: String) {
-        this.courseId = courseId
+        this.courseId.value = courseId
     }
 
-    fun getCourse(): LiveData<CourseEntity> = academyRepository.getCourseWithModules(courseId)
+    var courseModule: LiveData<Resource<CourseWithModule>> = Transformations.switchMap(courseId) { mCourseId ->
+        academyRepository.getCourseWithModules(mCourseId)
+    }
 
-    fun getModules(): LiveData<List<ModuleEntity>> = academyRepository.getAllModulesByCourse(courseId)
-
-//    fun getCourse(): CourseEntity? {
-//        var course: CourseEntity? = null
-//        for (courseEntity in DataDummy.generateDummyCourses()) {
-//            if (courseEntity.courseId == courseId) {
-//                course = courseEntity
-//            }
-//        }
-//        return course
-//    }
+    fun setBookmark() {
+        val moduleResource = courseModule.value
+        if (moduleResource != null) {
+            val courseWithModule = moduleResource.data
+            if (courseWithModule != null) {
+                val courseEntity = courseWithModule.mCourse
+                val newState = !courseEntity.bookmarked
+                academyRepository.setCourseBookmark(courseEntity, newState)
+            }
+        }
+    }
 }
