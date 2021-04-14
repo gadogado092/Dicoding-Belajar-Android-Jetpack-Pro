@@ -31,7 +31,7 @@ ext {
     navigationVersion = '2.3.5'
     legacyVersion = '1.0.0'
 
-    mockitoVersion = '3.6.0'
+    mockitoVersion = '3.8.0'
     mockitoKotlinVersion = '2.2.0'
     idleResourceVersion = '3.3.0'
 }
