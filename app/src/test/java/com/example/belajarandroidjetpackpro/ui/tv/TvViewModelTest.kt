@@ -3,8 +3,8 @@ package com.example.belajarandroidjetpackpro.ui.tv
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.belajarandroidjetpackpro.data.TvEntity
-import com.example.belajarandroidjetpackpro.data.source.MovieRepository
+import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
+import com.example.belajarandroidjetpackpro.data.MovieRepository
 import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert

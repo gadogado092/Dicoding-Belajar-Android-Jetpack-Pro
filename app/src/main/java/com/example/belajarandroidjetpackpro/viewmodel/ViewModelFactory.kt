@@ -3,7 +3,7 @@ package com.example.belajarandroidjetpackpro.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.belajarandroidjetpackpro.data.source.MovieRepository
+import com.example.belajarandroidjetpackpro.data.MovieRepository
 import com.example.belajarandroidjetpackpro.di.Injection
 import com.example.belajarandroidjetpackpro.ui.detail.DetailMovieViewModel
 import com.example.belajarandroidjetpackpro.ui.detail.DetailTvViewModel

@@ -2,8 +2,9 @@ package com.example.belajarandroidjetpackpro.data.source
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.belajarandroidjetpackpro.data.MovieEntity
-import com.example.belajarandroidjetpackpro.data.TvEntity
+import com.example.belajarandroidjetpackpro.data.MovieDataSource
+import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 import com.example.belajarandroidjetpackpro.data.source.remote.RemoteDataSource
 import com.example.belajarandroidjetpackpro.data.source.remote.response.MovieResponse
 import com.example.belajarandroidjetpackpro.data.source.remote.response.TvResponse

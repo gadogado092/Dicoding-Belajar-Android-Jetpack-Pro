@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BelajarAndroidJetpackPro">
         <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:label="@string/menu_my_favorite"
+            android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar" />
+        <activity
             android:name=".ui.detail.DetailTvActivity"
             android:label="@string/title_activity_detail_tv"
             android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar" />
@@ -17,7 +21,6 @@
             android:name=".ui.detail.DetailMovieActivity"
             android:label="@string/title_activity_detail_movie"
             android:theme="@style/Theme.BelajarAndroidJetpackPro.NoActionBar" />
-
         <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

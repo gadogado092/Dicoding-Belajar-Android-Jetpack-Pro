@@ -2,8 +2,9 @@ package com.example.belajarandroidjetpackpro.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.belajarandroidjetpackpro.data.MovieEntity
-import com.example.belajarandroidjetpackpro.data.source.MovieRepository
+import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
+import com.example.belajarandroidjetpackpro.data.MovieRepository
+import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 
 class DetailMovieViewModel(private val repository: MovieRepository) : ViewModel() {
     private lateinit var id: String
@@ -12,7 +13,11 @@ class DetailMovieViewModel(private val repository: MovieRepository) : ViewModel(
         this.id = id
     }
 
-    fun getDetail(): LiveData<MovieEntity?> {
+    fun getDetail(): LiveData<MovieEntity> {
         return repository.getDetailMovie(id)
+    }
+
+    fun setFavoriteMovie(movie: MovieEntity){
+        repository.setFavoriteMovie(movie)
     }
 }

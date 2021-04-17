@@ -19,6 +19,17 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
 
+    <ImageView
+        android:id="@+id/image_favorite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_poster_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_favorite_false"
+        android:background="@color/placeholder"
+        android:padding="8dp"
+        tools:ignore="ContentDescription" />
+
     <TextView
         android:id="@+id/text_title_tv"
         android:layout_width="0dp"

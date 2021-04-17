@@ -1,7 +1,7 @@
 package com.example.belajarandroidjetpackpro.utils
 
-import com.example.belajarandroidjetpackpro.data.MovieEntity
-import com.example.belajarandroidjetpackpro.data.TvEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 import com.example.belajarandroidjetpackpro.data.source.remote.response.MovieResponse
 import com.example.belajarandroidjetpackpro.data.source.remote.response.TvResponse
 

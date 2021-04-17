@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.data.MovieEntity
+import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
 import com.example.belajarandroidjetpackpro.databinding.ItemsMovieBinding
 import com.example.belajarandroidjetpackpro.ui.detail.DetailMovieActivity
 

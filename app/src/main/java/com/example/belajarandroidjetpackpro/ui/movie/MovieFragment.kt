@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.belajarandroidjetpackpro.databinding.FragmentMovieBinding
 import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
+import com.example.belajarandroidjetpackpro.vo.Status
 
 class MovieFragment : Fragment() {
 
@@ -30,11 +32,25 @@ class MovieFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val movieAdapter = MovieAdapter()
 
-            fragmentMovieBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getMovie().observe(viewLifecycleOwner,{ movies->
-                fragmentMovieBinding.progressBar.visibility = View.GONE
-                movieAdapter.setMovie(movies)
-                movieAdapter.notifyDataSetChanged()
+            viewModel.getMovie().observe(viewLifecycleOwner, { resMovie ->
+                if (resMovie != null) {
+                    when (resMovie.status) {
+                        Status.LOADING -> fragmentMovieBinding.progressBar.visibility = View.VISIBLE
+                        Status.SUCCESS -> {
+                            fragmentMovieBinding.progressBar.visibility = View.GONE
+                            movieAdapter.setMovie(resMovie.data)
+                            movieAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            fragmentMovieBinding.progressBar.visibility = View.GONE
+                            Toast.makeText(
+                                context,
+                                "Terjadi Kesalahan Saat Load Data",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
             })
 
 

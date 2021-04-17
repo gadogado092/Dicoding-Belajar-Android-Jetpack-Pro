@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.belajarandroidjetpackpro.databinding.FragmentTvBinding
 import com.example.belajarandroidjetpackpro.viewmodel.ViewModelFactory
+import com.example.belajarandroidjetpackpro.vo.Status
 
 class TvFragment : Fragment() {
 
@@ -32,11 +34,25 @@ class TvFragment : Fragment() {
             )[TvViewModel::class.java]
             val tvAdapter = TvAdapter()
 
-            fragmentTvBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getTv().observe(viewLifecycleOwner,{ tv->
-                fragmentTvBinding.progressBar.visibility = View.GONE
-                tvAdapter.setTv(tv)
-                tvAdapter.notifyDataSetChanged()
+            viewModel.getTv().observe(viewLifecycleOwner, { resTV ->
+                if (resTV != null) {
+                    when (resTV.status) {
+                        Status.LOADING -> fragmentTvBinding.progressBar.visibility = View.VISIBLE
+                        Status.SUCCESS -> {
+                            fragmentTvBinding.progressBar.visibility = View.GONE
+                            tvAdapter.setTv(resTV.data)
+                            tvAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            fragmentTvBinding.progressBar.visibility = View.GONE
+                            Toast.makeText(
+                                context,
+                                "Terjadi Kesalahan Saat Load Data",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
             })
 
             with(fragmentTvBinding.rvTv) {
