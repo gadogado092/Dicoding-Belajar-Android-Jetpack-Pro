@@ -18,12 +18,12 @@ import org.junit.Before
 import org.junit.Test
 
 
-class HomeActivityTest{
+class HomeActivityTest {
     private val dummyMovie = DataDummy.generateDummyMovie()
     private val dummyTv = DataDummy.generateDummyTv()
 
     @Before
-    fun setup(){
+    fun setup() {
         ActivityScenario.launch(HomeActivity::class.java)
         IdlingRegistry.getInstance().register(EspressoIdlingResource.idlingResource)
     }
@@ -72,6 +72,7 @@ class HomeActivityTest{
         onView(withId(R.id.text_title_movie)).check(matches(withText(dummyMovie[5].title)))
         onView(withId(R.id.text_date_movie)).check(matches(isDisplayed()))
         onView(withId(R.id.text_date_movie)).check(matches(withText(dummyMovie[5].dateRelease)))
+        onView(withId(R.id.image_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.view_pager)).perform(swipeLeft())
         onView(withId(R.id.rv_tv)).check(matches(isDisplayed()))
@@ -100,5 +101,23 @@ class HomeActivityTest{
         onView(withId(R.id.text_title_tv)).check(matches(withText(dummyTv[10].title)))
         onView(withId(R.id.text_date_tv)).check(matches(isDisplayed()))
         onView(withId(R.id.text_date_tv)).check(matches(withText(dummyTv[10].dateRelease)))
+        onView(withId(R.id.image_favorite)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.text_title_movie)).check(matches(isDisplayed()))
+        onView(withId(R.id.text_title_movie)).check(matches(withText(dummyMovie[5].title)))
+        onView(withId(R.id.text_date_movie)).check(matches(isDisplayed()))
+        onView(withId(R.id.text_date_movie)).check(matches(withText(dummyMovie[5].dateRelease)))
+        onView(withId(R.id.image_favorite)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withId(R.id.view_pager)).perform(swipeLeft())
+        onView(withId(R.id.rv_tv)).check(matches(isDisplayed()))
+        onView(isRoot()).perform(ViewActions.pressBack())
     }
 }
