@@ -1,7 +1,7 @@
 package com.example.belajarandroidjetpackpro.ui.favorite
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.belajarandroidjetpackpro.databinding.ActivityFavoriteBinding
 
 

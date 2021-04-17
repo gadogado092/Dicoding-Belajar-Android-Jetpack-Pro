@@ -12,9 +12,6 @@ import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.example.belajarandroidjetpackpro.utils.LiveDataTestUtil
 import com.example.belajarandroidjetpackpro.utils.PagedListUtil
 import com.example.belajarandroidjetpackpro.vo.Resource
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doAnswer
-import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

@@ -2,8 +2,8 @@ package com.example.belajarandroidjetpackpro.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 import com.example.belajarandroidjetpackpro.data.MovieRepository
+import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 
 class DetailTvViewModel(private val repository: MovieRepository) : ViewModel() {
     private lateinit var id: String

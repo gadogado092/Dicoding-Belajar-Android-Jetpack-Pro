@@ -7,7 +7,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.belajarandroidjetpackpro.R
 import com.example.belajarandroidjetpackpro.databinding.ActivityHomeBinding
-import com.example.belajarandroidjetpackpro.ui.detail.DetailMovieActivity
 import com.example.belajarandroidjetpackpro.ui.favorite.FavoriteActivity
 
 class HomeActivity : AppCompatActivity() {
