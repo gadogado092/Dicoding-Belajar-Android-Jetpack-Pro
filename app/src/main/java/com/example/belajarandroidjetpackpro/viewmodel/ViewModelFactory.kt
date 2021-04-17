@@ -7,6 +7,8 @@ import com.example.belajarandroidjetpackpro.data.MovieRepository
 import com.example.belajarandroidjetpackpro.di.Injection
 import com.example.belajarandroidjetpackpro.ui.detail.DetailMovieViewModel
 import com.example.belajarandroidjetpackpro.ui.detail.DetailTvViewModel
+import com.example.belajarandroidjetpackpro.ui.favorite.movie.MovieFavoriteViewModel
+import com.example.belajarandroidjetpackpro.ui.favorite.tv.TvFavoriteViewModel
 import com.example.belajarandroidjetpackpro.ui.movie.MovieViewModel
 import com.example.belajarandroidjetpackpro.ui.tv.TvViewModel
 
@@ -39,6 +41,12 @@ class ViewModelFactory private constructor(private val mMovieRepository: MovieRe
             }
             modelClass.isAssignableFrom(DetailTvViewModel::class.java) -> {
                 return DetailTvViewModel(mMovieRepository) as T
+            }
+            modelClass.isAssignableFrom(TvFavoriteViewModel::class.java) -> {
+                return TvFavoriteViewModel(mMovieRepository) as T
+            }
+            modelClass.isAssignableFrom(MovieFavoriteViewModel::class.java) -> {
+                return MovieFavoriteViewModel(mMovieRepository) as T
             }
 
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)

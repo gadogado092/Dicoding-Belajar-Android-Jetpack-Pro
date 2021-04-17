@@ -18,4 +18,8 @@ interface MovieDataSource {
 
     fun setFavoriteTv(tv: TvEntity)
 
+    fun getFavoriteMovie() : LiveData<List<MovieEntity>>
+
+    fun getFavoriteTv() : LiveData<List<TvEntity>>
+
 }

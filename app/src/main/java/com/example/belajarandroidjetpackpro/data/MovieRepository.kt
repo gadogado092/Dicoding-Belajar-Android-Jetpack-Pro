@@ -113,4 +113,12 @@ class MovieRepository private constructor(
     override fun setFavoriteTv(tv: TvEntity) {
         return localDataSource.setFavoriteTvShow(tv)
     }
+
+    override fun getFavoriteMovie(): LiveData<List<MovieEntity>> {
+        return localDataSource.getFavoriteMovie()
+    }
+
+    override fun getFavoriteTv(): LiveData<List<TvEntity>> {
+        return localDataSource.getFavoriteTv()
+    }
 }

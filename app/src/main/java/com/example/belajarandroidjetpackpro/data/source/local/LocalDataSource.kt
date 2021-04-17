@@ -29,6 +29,8 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
         }
     }
 
+    fun getFavoriteMovie(): LiveData<List<MovieEntity>> = mMovieDao.getListFavoriteMovies()
+
     //TV
     fun getAllTv(): LiveData<List<TvEntity>> = mMovieDao.getTv()
 
@@ -42,4 +44,5 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
             mMovieDao.updateTv(tv)
         }
     }
+    fun getFavoriteTv(): LiveData<List<TvEntity>> = mMovieDao.getListFavoriteTv()
 }
