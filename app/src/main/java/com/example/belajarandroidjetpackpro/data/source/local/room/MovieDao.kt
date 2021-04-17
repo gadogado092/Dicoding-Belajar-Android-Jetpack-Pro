@@ -1,6 +1,7 @@
 package com.example.belajarandroidjetpackpro.data.source.local.room
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
 import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
@@ -9,13 +10,13 @@ import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 interface MovieDao {
 
     @Query("SELECT * FROM movieentities")
-    fun getMovies(): LiveData<List<MovieEntity>>
+    fun getMovies(): DataSource.Factory<Int, MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovies(courses: List<MovieEntity>)
 
     @Query("SELECT * FROM tventities")
-    fun getTv(): LiveData<List<TvEntity>>
+    fun getTv(): DataSource.Factory<Int, TvEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTv(courses: List<TvEntity>)
@@ -33,9 +34,9 @@ interface MovieDao {
     fun updateTv(tv: TvEntity)
 
     @Query("SELECT * FROM movieentities WHERE favorite = 1")
-    fun getListFavoriteMovies(): LiveData<List<MovieEntity>>
+    fun getListFavoriteMovies(): DataSource.Factory<Int, MovieEntity>
 
     @Query("SELECT * FROM tventities WHERE favorite = 1")
-    fun getListFavoriteTv(): LiveData<List<TvEntity>>
+    fun getListFavoriteTv(): DataSource.Factory<Int, TvEntity>
 
 }

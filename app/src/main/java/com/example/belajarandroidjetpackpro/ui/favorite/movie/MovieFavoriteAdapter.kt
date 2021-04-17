@@ -3,6 +3,8 @@ package com.example.belajarandroidjetpackpro.ui.favorite.movie
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -11,13 +13,17 @@ import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
 import com.example.belajarandroidjetpackpro.databinding.ItemsMovieBinding
 import com.example.belajarandroidjetpackpro.ui.detail.DetailMovieActivity
 
-class MovieFavoriteAdapter : RecyclerView.Adapter<MovieFavoriteAdapter.MovieViewHolder>() {
-    private var listMovie = ArrayList<MovieEntity>()
+class MovieFavoriteAdapter : PagedListAdapter<MovieEntity, MovieFavoriteAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
-    fun setMovie(listMovie: List<MovieEntity>?) {
-        if (listMovie == null) return
-        this.listMovie.clear()
-        this.listMovie.addAll(listMovie)
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -27,12 +33,10 @@ class MovieFavoriteAdapter : RecyclerView.Adapter<MovieFavoriteAdapter.MovieView
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val course = listMovie[position]
-        holder.bind(course)
-    }
-
-    override fun getItemCount(): Int {
-        return listMovie.size
+        val movie = getItem(position)
+        if (movie != null) {
+            holder.bind(movie)
+        }
     }
 
     inner class MovieViewHolder(private val binding: ItemsMovieBinding) :

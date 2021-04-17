@@ -33,7 +33,7 @@ class TvFavoriteFragment : Fragment() {
             fragmentFavoriteTvBinding.progressBar.visibility = View.VISIBLE
             viewModel.getTv().observe(viewLifecycleOwner,{ tv->
                 fragmentFavoriteTvBinding.progressBar.visibility = View.GONE
-                tvAdapter.setTv(tv)
+                tvAdapter.submitList(tv)
                 tvAdapter.notifyDataSetChanged()
                 if (tv.isEmpty()){
                     fragmentFavoriteTvBinding.tvNoData.visibility = View.VISIBLE

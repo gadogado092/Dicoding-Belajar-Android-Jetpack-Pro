@@ -1,6 +1,7 @@
 package com.example.belajarandroidjetpackpro.data.source.local
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
 import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 import com.example.belajarandroidjetpackpro.data.source.local.room.MovieDao
@@ -16,7 +17,7 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
     }
 
     //MOVIE
-    fun getAllMovie(): LiveData<List<MovieEntity>> = mMovieDao.getMovies()
+    fun getAllMovie(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getMovies()
 
     fun insertMovies(list: List<MovieEntity>) = mMovieDao.insertMovies(list)
 
@@ -29,10 +30,10 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
         }
     }
 
-    fun getFavoriteMovie(): LiveData<List<MovieEntity>> = mMovieDao.getListFavoriteMovies()
+    fun getFavoriteMovie(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getListFavoriteMovies()
 
     //TV
-    fun getAllTv(): LiveData<List<TvEntity>> = mMovieDao.getTv()
+    fun getAllTv(): DataSource.Factory<Int, TvEntity> = mMovieDao.getTv()
 
     fun insertTV(list: List<TvEntity>) = mMovieDao.insertTv(list)
 
@@ -44,5 +45,5 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
             mMovieDao.updateTv(tv)
         }
     }
-    fun getFavoriteTv(): LiveData<List<TvEntity>> = mMovieDao.getListFavoriteTv()
+    fun getFavoriteTv(): DataSource.Factory<Int, TvEntity> = mMovieDao.getListFavoriteTv()
 }

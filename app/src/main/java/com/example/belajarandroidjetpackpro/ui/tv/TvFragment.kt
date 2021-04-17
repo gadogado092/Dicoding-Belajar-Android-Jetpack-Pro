@@ -40,7 +40,7 @@ class TvFragment : Fragment() {
                         Status.LOADING -> fragmentTvBinding.progressBar.visibility = View.VISIBLE
                         Status.SUCCESS -> {
                             fragmentTvBinding.progressBar.visibility = View.GONE
-                            tvAdapter.setTv(resTV.data)
+                            tvAdapter.submitList(resTV.data)
                             tvAdapter.notifyDataSetChanged()
                         }
                         Status.ERROR -> {
