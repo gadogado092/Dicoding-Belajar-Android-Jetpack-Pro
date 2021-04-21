@@ -50,7 +50,7 @@ class DetailMovieActivity : AppCompatActivity() {
             if (id != null) {
                 activityDetailBinding.progressBar.visibility = View.VISIBLE
                 viewModel.setSelected(id)
-                viewModel.getDetail().observe(this, { detail ->
+                viewModel.movie.observe(this, { detail ->
                     activityDetailBinding.progressBar.visibility = View.GONE
                     detail?.let { populateDetail(it) }
                 })
@@ -85,7 +85,7 @@ class DetailMovieActivity : AppCompatActivity() {
             }else {
                 Snackbar.make(findViewById(android.R.id.content), "Ditambahkan Ke Favorite", Snackbar.LENGTH_SHORT).show()
             }
-            viewModel.setFavoriteMovie(detail)
+            viewModel.setFavoriteMovie()
         }
     }
 

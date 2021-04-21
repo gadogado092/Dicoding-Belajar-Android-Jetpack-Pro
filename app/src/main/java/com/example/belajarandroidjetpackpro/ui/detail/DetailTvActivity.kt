@@ -51,7 +51,7 @@ class DetailTvActivity : AppCompatActivity() {
             if (id != null) {
                 activityDetailBinding.progressBar.visibility= View.VISIBLE
                 viewModel.setSelected(id)
-                viewModel.getDetail().observe(this, {detail->
+                viewModel.tv.observe(this, {detail->
                     activityDetailBinding.progressBar.visibility= View.GONE
                     detail?.let { populateDetail(it) }
                 })
@@ -86,7 +86,7 @@ class DetailTvActivity : AppCompatActivity() {
             }else {
                 Snackbar.make(findViewById(android.R.id.content), "Ditambahkan Ke Favorite", Snackbar.LENGTH_SHORT).show()
             }
-            viewModel.setFavoriteTv(detail)
+            viewModel.setFavoriteTv()
         }
     }
     private fun setFavoriteState(status: Boolean){

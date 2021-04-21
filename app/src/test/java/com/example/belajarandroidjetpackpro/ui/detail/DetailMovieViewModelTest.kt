@@ -6,17 +6,17 @@ import androidx.lifecycle.Observer
 import com.example.belajarandroidjetpackpro.data.MovieRepository
 import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class DetailMovieViewModelTest  {
+class DetailMovieViewModelTest {
     private lateinit var detailMovieViewModel: DetailMovieViewModel
 
     @get:Rule
@@ -28,13 +28,14 @@ class DetailMovieViewModelTest  {
     @Before
     fun before() {
         detailMovieViewModel = DetailMovieViewModel(movieRepository)
+        detailMovieViewModel.setSelected("4")
     }
 
     @Mock
     private lateinit var observer: Observer<MovieEntity?>
 
     @Test
-    fun testGetDetail() {
+    fun setSelected() {
         val dummy = MovieEntity(
             "4",
             "Aquaman",
@@ -42,17 +43,45 @@ class DetailMovieViewModelTest  {
             "R.drawable.poster_aquaman",
             "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
         )
-        val movie = MutableLiveData<MovieEntity>()
-        movie.value= dummy
 
-        Mockito.`when`(movieRepository.getDetailMovie("4")).thenReturn(movie)
-        detailMovieViewModel.setSelected("4")
-        val movieEntities = detailMovieViewModel.getDetail().value
-        Mockito.verify(movieRepository).getDetailMovie("4")
-        assertNotNull(movieEntities)
-        assertEquals("Aquaman", movieEntities?.title)
+        val expected = MutableLiveData<MovieEntity>()
+        expected.value = dummy
 
-        detailMovieViewModel.getDetail().observeForever(observer)
-        Mockito.verify(observer).onChanged(dummy)
+        `when`(movieRepository.getDetailMovie("4")).thenReturn(expected)
+
+        detailMovieViewModel.movie.observeForever(observer)
+
+        verify(observer).onChanged(expected.value)
+
+        val expectedValue = expected.value
+        val actualValue = detailMovieViewModel.movie.value
+
+        assertEquals(expectedValue, actualValue)
+    }
+
+    @Test
+    fun setFavoriteMovie() {
+        val dummy = MovieEntity(
+            "4",
+            "Aquaman",
+            "21/12/2018",
+            "R.drawable.poster_aquaman",
+            "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
+        )
+
+        val expected = MutableLiveData<MovieEntity>()
+        expected.value = dummy
+
+        `when`(movieRepository.getDetailMovie("4")).thenReturn(expected)
+
+        detailMovieViewModel.setFavoriteMovie()
+        detailMovieViewModel.movie.observeForever(observer)
+
+        verify(observer).onChanged(expected.value)
+
+        val expectedValue = expected.value
+        val actualValue = detailMovieViewModel.movie.value
+
+        assertEquals(expectedValue, actualValue)
     }
 }
