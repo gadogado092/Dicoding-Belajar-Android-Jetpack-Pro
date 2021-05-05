@@ -11,8 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
+import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -69,19 +68,18 @@ class DetailMovieViewModelTest {
             "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
         )
 
-        val expected = MutableLiveData<MovieEntity>()
-        expected.value = dummy
+        val movie = MutableLiveData<MovieEntity>()
+        movie.value = dummy
 
-        `when`(movieRepository.getDetailMovie("4")).thenReturn(expected)
+        `when`(movieRepository.getDetailMovie("4")).thenReturn(movie)
+
+        detailMovieViewModel.movie =  movieRepository.getDetailMovie("4")
 
         detailMovieViewModel.setFavoriteMovie()
-        detailMovieViewModel.movie.observeForever(observer)
 
-        verify(observer).onChanged(expected.value)
+        verify(movieRepository).setFavoriteMovie(movie.value as MovieEntity)
 
-        val expectedValue = expected.value
-        val actualValue = detailMovieViewModel.movie.value
+        verifyNoMoreInteractions(observer)
 
-        assertEquals(expectedValue, actualValue)
     }
 }

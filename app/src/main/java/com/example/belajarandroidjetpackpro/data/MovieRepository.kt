@@ -118,13 +118,13 @@ class MovieRepository private constructor(
         return localDataSource.getDetailTv(tvId)
     }
 
-    override fun setFavoriteMovie(movie: MovieEntity) {
-        return localDataSource.setFavoriteMovie(movie)
-    }
+    override fun setFavoriteMovie(movie: MovieEntity) =
+        appExecutors.diskIO().execute { localDataSource.setFavoriteMovie(movie) }
 
-    override fun setFavoriteTv(tv: TvEntity) {
-        return localDataSource.setFavoriteTvShow(tv)
-    }
+
+    override fun setFavoriteTv(tv: TvEntity) =
+        appExecutors.diskIO().execute { localDataSource.setFavoriteTvShow(tv) }
+
 
     override fun getFavoriteMovie(): LiveData<PagedList<MovieEntity>> {
         val config = PagedList.Config.Builder()

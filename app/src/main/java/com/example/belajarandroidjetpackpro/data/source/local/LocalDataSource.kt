@@ -24,10 +24,8 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
     fun getDetailMovie(id: String): LiveData<MovieEntity> = mMovieDao.getDetailMovieById(id)
 
     fun setFavoriteMovie(movie: MovieEntity) {
-        CoroutineScope(IO).launch {
-            movie.favorite = !movie.favorite
-            mMovieDao.updateMovie(movie)
-        }
+        movie.favorite = !movie.favorite
+        mMovieDao.updateMovie(movie)
     }
 
     fun getFavoriteMovie(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getListFavoriteMovies()
@@ -40,10 +38,9 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
     fun getDetailTv(id: String): LiveData<TvEntity> = mMovieDao.getDetailTvById(id)
 
     fun setFavoriteTvShow(tv: TvEntity) {
-        CoroutineScope(IO).launch {
-            tv.favorite = !tv.favorite
-            mMovieDao.updateTv(tv)
-        }
+        tv.favorite = !tv.favorite
+        mMovieDao.updateTv(tv)
     }
+
     fun getFavoriteTv(): DataSource.Factory<Int, TvEntity> = mMovieDao.getListFavoriteTv()
 }

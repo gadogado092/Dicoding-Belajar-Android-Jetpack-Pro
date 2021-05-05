@@ -11,7 +11,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.example.belajarandroidjetpackpro.R
-import com.example.belajarandroidjetpackpro.utils.DataDummy
 import com.example.belajarandroidjetpackpro.utils.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before
@@ -19,8 +18,6 @@ import org.junit.Test
 
 
 class HomeActivityTest {
-    private val dummyMovie = DataDummy.generateDummyMovie()
-    private val dummyTv = DataDummy.generateDummyTv()
 
     @Before
     fun setup() {
@@ -68,10 +65,7 @@ class HomeActivityTest {
                 click()
             )
         )
-        onView(withId(R.id.text_title_movie)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_title_movie)).check(matches(withText(dummyMovie[5].title)))
-        onView(withId(R.id.text_date_movie)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_date_movie)).check(matches(withText(dummyMovie[5].dateRelease)))
+        onView(withId(R.id.image_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.image_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.view_pager)).perform(swipeLeft())
@@ -97,10 +91,7 @@ class HomeActivityTest {
                 click()
             )
         )
-        onView(withId(R.id.text_title_tv)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_title_tv)).check(matches(withText(dummyTv[10].title)))
-        onView(withId(R.id.text_date_tv)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_date_tv)).check(matches(withText(dummyTv[10].dateRelease)))
+        onView(withId(R.id.image_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.image_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.action_favorite)).perform(click())
@@ -110,10 +101,7 @@ class HomeActivityTest {
                 click()
             )
         )
-        onView(withId(R.id.text_title_movie)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_title_movie)).check(matches(withText(dummyMovie[5].title)))
-        onView(withId(R.id.text_date_movie)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_date_movie)).check(matches(withText(dummyMovie[5].dateRelease)))
+        onView(withId(R.id.image_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.image_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.view_pager)).perform(swipeLeft())

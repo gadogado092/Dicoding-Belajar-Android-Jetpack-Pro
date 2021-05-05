@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.example.belajarandroidjetpackpro.data.MovieRepository
+import com.example.belajarandroidjetpackpro.data.source.local.entity.MovieEntity
 import com.example.belajarandroidjetpackpro.data.source.local.entity.TvEntity
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -67,20 +68,18 @@ class DetailTvViewModelTest {
             "R.drawable.poster_gotham",
             "Semua orang tahu nama Komisaris Gordon. Dia adalah salah satu musuh terbesar dunia kejahatan, seorang pria yang reputasinya identik dengan hukum dan ketertiban. Tapi apa yang diketahui tentang kisah Gordon dan kenaikannya dari detektif pemula ke Komisaris Polisi? Apa yang diperlukan untuk menavigasi berbagai lapisan korupsi yang diam-diam memerintah Kota Gotham, tempat bertelurnya penjahat paling ikonik di dunia? Dan keadaan apa yang menciptakan mereka - persona yang lebih besar dari kehidupan yang akan menjadi Catwoman, The Penguin, The Riddler, Two-Face dan The Joker?",
         )
-        val expected = MutableLiveData<TvEntity>()
-        expected.value = dummy
+        val tv = MutableLiveData<TvEntity>()
+        tv.value = dummy
 
-        Mockito.`when`(movieRepository.getDetailTv("4")).thenReturn(expected)
+        Mockito.`when`(movieRepository.getDetailTv("4")).thenReturn(tv)
+
+        detailTvViewModel.tv =  movieRepository.getDetailTv("4")
 
         detailTvViewModel.setFavoriteTv()
-        detailTvViewModel.tv.observeForever(observer)
 
-        Mockito.verify(observer).onChanged(expected.value)
+        Mockito.verify(movieRepository).setFavoriteTv(tv.value as TvEntity)
 
-        val expectedValue = expected.value
-        val actualValue = detailTvViewModel.tv.value
-
-        assertEquals(expectedValue, actualValue)
+        Mockito.verifyNoMoreInteractions(observer)
 
     }
 }

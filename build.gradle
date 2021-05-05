@@ -32,7 +32,7 @@ ext {
     legacyVersion = '1.0.0'
 
     roomVersion = '2.2.3'
-    roomRuntimeVersion = '2.2.6'
+    roomRuntimeVersion = '2.3.0'
 
     pagingVersion = '2.1.2'
 
